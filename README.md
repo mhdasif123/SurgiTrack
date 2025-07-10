@@ -35,7 +35,7 @@ your repo access and to practice PR'ing with your team *before* you start
 coding!
 
 - Brittany Haupt: [GitHub](https://github.com/Haupt04) / [LinkedIn](https://www.linkedin.com/in/brittany-haupt-4a38621b2/)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Aibar Kamashev: [GitHub](https://github.com/Aibar-S/)
 - Lymperis Dimitris #3: [GitHub](https://github.com/JimLimpe) / [LinkedIn](https://www.linkedin.com/in/dimitris-lymperis-web-developer/)
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
