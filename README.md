@@ -36,6 +36,6 @@ coding!
 
 - Brittany Haupt: [GitHub](https://github.com/Haupt04) / [LinkedIn](https://www.linkedin.com/in/brittany-haupt-4a38621b2/)
 - Aibar Kamashev: [GitHub](https://github.com/Aibar-S/)
-- Lymperis Dimitris #3: [GitHub](https://github.com/JimLimpe) / [LinkedIn](https://www.linkedin.com/in/dimitris-lymperis-web-developer/)
-- Mohammed Asif #3: [GitHub](https://github.com/mhdasif123) / [LinkedIn](https://www.linkedin.com/in/mhdasif123/)
+- Lymperis Dimitris: [GitHub](https://github.com/JimLimpe) / [LinkedIn](https://www.linkedin.com/in/dimitris-lymperis-web-developer/)
+- Mohammed Asif: [GitHub](https://github.com/mhdasif123) / [LinkedIn](https://www.linkedin.com/in/mhdasif123/)
 - Mostafa Elmoalem: [GitHub](https://github.com/Mostafa-Elmoalem) / [LinkedIn](https://linkedin.com/in/mostafa-elmoalem-782a821ba/)
