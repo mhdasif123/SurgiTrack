@@ -1,4 +1,3 @@
-
 export const STATUSES = ["Checked In", "Pre-Procedure", "In-Progress", "Recovery", "Complete"];
 
 export const mockPatients = [
@@ -40,30 +39,6 @@ export const mockPatients = [
     procedure: "Hip Replacement",
     currentStatus: "Checked In",
     lastUpdated: "2025-07-21 11:45",
-    history: []
-  },
-    {
-    id: "F567L6",
-    name: "Susan Miller",
-    procedure: "Cataract Surgery",
-    currentStatus: "In-Progress",
-    lastUpdated: "2025-07-21 15:10",
-    history: []
-  },
-  {
-    id: "G901M7",
-    name: "Robert Davis",
-    procedure: "Tonsillectomy",
-    currentStatus: "Recovery",
-    lastUpdated: "2025-07-21 15:25",
-    history: []
-  },
-    {
-    id: "H234N8",
-    name: "Patricia Garcia",
-    procedure: "Sinus Surgery",
-    currentStatus: "Pre-Procedure",
-    lastUpdated: "2025-07-21 15:30",
     history: []
   }
 ];

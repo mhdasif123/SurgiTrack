@@ -6,8 +6,8 @@ const GuestStatusPage = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold">Patient Status</h1>
-      <p className="mt-4">Displaying status for Patient ID: <span className="font-mono bg-gray-200 px-2 py-1 rounded">{patientId}</span></p>
+      <h1 className="text-3xl font-bold">Patient Status Page</h1>
+      <p className="mt-2">Showing status for Patient ID: {patientId}</p>
     </div>
   );
 };
