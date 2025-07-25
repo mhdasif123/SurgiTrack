@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
-  // useNavigate is a hook to programmatically navigate after login
   const navigate = useNavigate();
+  const [patientId, setPatientId] = useState('');
 
   const handleGuestLogin = (e) => {
     e.preventDefault();
-    // In the future, you'll get the ID from the form input
-    const mockPatientId = 'A312F2';
-    navigate(`/status/${mockPatientId}`);
+    if (patientId.trim()) {
+      navigate(`/status/${patientId}`);
+    }
   };
 
   const handleStaffLogin = (e) => {
@@ -20,7 +20,7 @@ const LoginPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh]">
       <div className="text-center mb-10">
-        <h1 className="text-4xl font-bold text-primary-blue">SurgiTrack</h1>
+        <h1 className="text-4xl font-bold text-blue-600">SurgiTrack</h1>
         <p className="text-gray-600">Real-Time Surgical Status Tracker</p>
       </div>
 
@@ -35,12 +35,14 @@ const LoginPage = () => {
             <input
               type="text"
               id="patientId"
+              value={patientId}
+              onChange={(e) => setPatientId(e.target.value)}
               placeholder="e.g., A312F2"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary-blue focus:border-primary-blue"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
             <button
               type="submit"
-              className="w-full mt-4 bg-primary-blue text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
+              className="w-full mt-4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
             >
               View Status
             </button>
