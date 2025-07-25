@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
-import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 import PublicDashboardPage from './Pages/PublicDashboardPage';
 import GuestStatusPage from './Pages/GuestStatusPage';
@@ -14,8 +13,7 @@ function App() {
       <Header />
       <main className="container mx-auto px-4 py-8">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/waiting-room" element={<PublicDashboardPage />} />
           <Route path="/status/:patientId" element={<GuestStatusPage />} />
           <Route path="/dashboard" element={<StaffDashboardPage />} />
