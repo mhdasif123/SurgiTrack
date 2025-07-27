@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
-import LoginPage from './Pages/LoginPage';
+import LoginPage from './pages/LoginPage';
 import PublicDashboardPage from './Pages/PublicDashboardPage';
 import GuestStatusPage from './Pages/GuestStatusPage';
 import StaffDashboardPage from './Pages/StaffDashboardPage';
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="container mx-auto px-4 py-8">
+      <main className="">
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/waiting-room" element={<PublicDashboardPage />} />
