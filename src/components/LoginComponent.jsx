@@ -1,5 +1,6 @@
 import  { useContext, useState } from 'react'
 import { AuthContext } from '../contexts/AuthContext'
+import { Link } from "react-router-dom";
 
 const LoginComponent = () => {
     const {login, error} = useContext(AuthContext);
@@ -37,9 +38,11 @@ const LoginComponent = () => {
         <div className="w-full max-w-md text-center z-10">
           <h3 className="text-5xl font-semibold mb-2 pb-10">Not a staff member..</h3>
           <p className="text-xl mb-6">Search for the patient?</p>
+          <Link to="/search-patient"> {/* Just added a route to the SearchPatientPage */}
           <button className="border-2 font-bold text-xl p-12 border-white px-20 py-6 rounded-md hover:bg-white hover:text-blue-600 transition">
             View Patient
           </button>
+          </Link> 
         </div>
       </div>
     </div>

@@ -1,11 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
 import LoginPage from './pages/LoginPage';
 import PublicDashboardPage from './Pages/PublicDashboardPage';
 import GuestStatusPage from './Pages/GuestStatusPage';
 import StaffDashboardPage from './Pages/StaffDashboardPage';
+import SearchPatientPage from './Pages/SearchPatientPage'; //Created a Page and a route
 import AddPatientPage from './Pages/admin/AddPatientPage';
+
 
 function App() {
   return (
@@ -17,9 +20,11 @@ function App() {
           <Route path="/waiting-room" element={<PublicDashboardPage />} />
           <Route path="/status/:patientId" element={<GuestStatusPage />} />
           <Route path="/dashboard" element={<StaffDashboardPage />} />
+          <Route path="/search-patient" element={<SearchPatientPage />} />
           <Route path="/admin/add-patient" element={<AddPatientPage />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
