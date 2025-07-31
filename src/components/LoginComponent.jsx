@@ -1,6 +1,7 @@
 import  { useContext, useState } from 'react'
 import { AuthContext } from '../contexts/AuthContext'
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const LoginComponent = () => {
     const {login, error} = useContext(AuthContext);
@@ -60,9 +61,11 @@ const LoginComponent = () => {
           <div className="w-full max-w-md text-center z-10">
             <h3 className="text-4xl font-semibold mb-4">Family & Friends</h3>
             <p className="text-lg mb-6 font-bold text-gray-100">Search for a patient?</p>
-            <button className="border-2 font-bold text-lg px-10 py-4 border-white rounded-md hover:bg-white hover:text-blue-600 transition">
-              View Patient
-            </button>
+            <Link to="/search-patient"> {/* Just added a route to the SearchPatientPage */}
+              <button className="border-2 font-bold text-lg px-10 py-4 border-white rounded-md hover:bg-white hover:text-blue-600 transition">
+                View Patient
+              </button>
+            </Link>
           </div>
         </div>
 
