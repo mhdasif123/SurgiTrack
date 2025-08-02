@@ -33,9 +33,9 @@ const SearchPatientComponent = () => {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="flex w-[90%] max-w-6xl rounded-2xl overflow-hidden shadow-2xl">
+      <div className="flex w-[90%] max-w-6xl rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-200">
         {/* Left Panel */}
-        <div className="w-1/2 bg-gradient-to-tl from-blue-600 to-blue-400 text-white flex flex-col justify-center items-center p-16 rounded-r-[300px]">
+        <div className="w-1/2 bg-gradient-to-tl from-blue-600 to-blue-400 text-white flex flex-col justify-center items-center p-16 rounded-r-[150px]">
           <div className="w-full max-w-md text-center z-10">
             <h3 className="text-5xl font-semibold mb-6">Are you hospital staff?</h3>
             <p className="text-xl font-bold mb-10">Welcome back</p>
@@ -74,11 +74,11 @@ const SearchPatientComponent = () => {
                 View Patient Status
               </button>
 
-              <div className="text-base font-black text-center pt-8 pb-8 text-gray-500 hover:underline cursor-pointer">
+              <div className="text-base font-black text-center pt-9 pb-8 text-gray-500 hover:underline cursor-pointer">
                 Need Help?
               </div>
 
-              <div className="text-base font-black text-center pb-8 text-gray-500 hover:underline cursor-pointer">
+              <div className="text-base font-black text-center pb-10 text-gray-500 hover:underline cursor-pointer">
                 Learn how to get access to your Patient ID
               </div>
 

@@ -15,7 +15,7 @@ const LoginComponent = () => {
 
   return (
      <div className="flex justify-center items-center">
-      <div className="flex w-[90%] max-w-6xl rounded-2xl overflow-hidden shadow-2xl ">
+       <div className="flex w-[90%] max-w-6xl rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-200">
 
         {/* Left Side - Login Form */}
         <div className='w-1/2 bg-white flex flex-col justify-center items-center p-15'>
