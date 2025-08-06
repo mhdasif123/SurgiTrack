@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import UsersDisplay from '../UsersDisplay'; // Added feature
+
 
 const Header = () => {
   const [date, setDate] = useState('');
@@ -52,7 +54,9 @@ const Header = () => {
         </div>
 
         {/* Empty div to preserve spacing on the right */}
-        <div className="w-24 md:w-32"></div>
+        <div > 
+          <UsersDisplay />
+          </div>
       </nav>
     </header>
   );

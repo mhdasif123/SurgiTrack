@@ -1,17 +1,24 @@
-import  { useContext, useState } from 'react'
-import { AuthContext } from '../contexts/AuthContext'
+import { useContext, useState, useEffect } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // ⬅️ added useNavigate
 
 const LoginComponent = () => {
-    const {login, error} = useContext(AuthContext);
+    const { login, error, user } = useContext(AuthContext);
     const [identityNumber, setidentityNumber] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate(); // ⬅️ init
 
     const handleSubmit = (e) => {
         e.preventDefault();
         login(identityNumber, password);
-    }
+    };
+
+    useEffect(() => {
+        if (user) {
+            navigate('/dashboard'); // ⬅️ redirect after login
+        }
+    }, [user, navigate]);
 
   return (
      <div className="flex justify-center items-center">
