@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { mockPatients } from "../data/mockData";
+import { PatientContext } from "../contexts/PatientContext";
+// import { mockPatients } from "../data/mockData";
 
 const statusStyles = {
   "Checked In": "bg-blue-100 text-blue-600",
@@ -10,6 +12,11 @@ const statusStyles = {
 };
 
 const StaffDashboardComponent = () => {
+
+  // Test -  Add this just to make the table update when someone add a patient
+  const {patients} = useContext(PatientContext);
+  const mockPatients = patients;
+
   return (
     <div className="min-h-screen bg-blue-50 px-4 py-10 relative">
       {/* Page Header */}
@@ -51,7 +58,7 @@ const StaffDashboardComponent = () => {
                   </td>
 
                   {/* Last Updated */}
-                  <td className="px-6 py-4">{patient.lastUpdated}</td>
+                  <td className="px-6 py-4">{new Date(patient.lastUpdated).toLocaleString()}</td>
 
                   {/* Actions */}
                   <td className="px-6 py-4 space-x-3">
