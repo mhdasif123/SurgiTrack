@@ -2,19 +2,14 @@ import { useState } from 'react';
 import { FaUsers } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
 import { mockPatients } from '../data/mockData';
-
-
-/* This Component searches through Patients mockData, and if the id is correct it navigates to the GuestStatusPage (Which still displays nothing) 
-It still nedds a few fixes as:
-The Need Help? & Learn how to get access to your Patient Id 
-Still do nothing
-*/
+import  SearchDialogComponent  from './SearchDialogComponent';
 
 
 const SearchPatientComponent = () => {
   const [patientId, setPatientId] = useState('');
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [dialogContent, setDialogContent] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +25,24 @@ const SearchPatientComponent = () => {
       setError('Patient not found. Please check your ID and try again.');
     }
   };
+  
+    /*Dialog messages logic */
+
+  const openDialog = (type) => {
+    if (type === 'help') {
+      setDialogContent({
+        title: 'Need Help?',
+        message: 'The Patient ID is a unique and strictly confidential 6 six characters containing any combination of letters or numbers assigned to each individual.'
+      });
+    } else if (type === 'patientId') {
+      setDialogContent({
+        title: 'Get Your Patient ID',
+        message: "To access your Patient ID, please contact the clinic's reception. Note: Only close relatives, designated escorts, or legal custodians are authorized to request this information."
+      });
+    }
+  };
+
+  const closeDialog = () => setDialogContent(null);
 
   return (
     <div className="flex justify-center items-center">
@@ -74,13 +87,19 @@ const SearchPatientComponent = () => {
                 View Patient Status
               </button>
 
-              <div className="text-base font-black text-center pt-9 pb-8 text-gray-500 hover:underline cursor-pointer">
+              <div className="text-base font-black text-center pt-9 pb-8 text-gray-500 hover:underline cursor-pointer"  onClick={() => openDialog('help')}>
                 Need Help?
               </div>
 
-              <div className="text-base font-black text-center pb-10 text-gray-500 hover:underline cursor-pointer">
+              <div className="text-base font-black text-center pb-10 text-gray-500 hover:underline cursor-pointer" onClick={() => openDialog('patientId')}>
                 Learn how to get access to your Patient ID
               </div>
+               <SearchDialogComponent
+        isOpen={dialogContent !== null}
+        onClose={closeDialog}
+        title={dialogContent?.title}
+        message={dialogContent?.message}
+      />
 
               {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
             </form>
