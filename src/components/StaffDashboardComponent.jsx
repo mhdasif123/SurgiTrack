@@ -38,7 +38,7 @@ const StaffDashboardComponent = () => {
               </tr>
             </thead>
             <tbody className="text-gray-800 text-sm">
-              {patients.map((patient) => (
+              {patients?.map((patient) => (
                 <tr key={patient.id} className="border-t">
                   {/* Patient Name + ID */}
                   <td className="px-6 py-4">

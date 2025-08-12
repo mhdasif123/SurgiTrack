@@ -14,8 +14,8 @@ const AddPatientPage = () => {
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
   const [IdGenerator, setIdGenerator] = useState("");
+  const [procedure, setProcedure] = useState("");
 
-  const status = "Checked In";
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,8 +33,9 @@ const AddPatientPage = () => {
       country: country,
       city: city,
       street: street,
-      currentStatus: status,
-      lastUpdated: new Date().toISOString()
+      currentStatus: "Checked In",
+      lastUpdated: new Date().toISOString(),
+      procedure: procedure
     })
 
     navigate('/dashboard')
@@ -42,9 +43,12 @@ const AddPatientPage = () => {
 
   return (
       <>
-      <h1 className="text-4xl font-bold text-gray-800 mb-2 text-center p-6">Add New Patient</h1>
+      <h1 className="text-4xl font-bold text-gray-800 mb-2 text-center p-3">Add New Patient</h1>
       <div className="max-w-4xl mx-auto p-6 bg-white shadow-2xl rounded-2xl">
       <form className="space-y-6" onSubmit={submitForm}>
+        <div>
+          <h2 className="text-3xl font-bold text-black">Personal Information</h2>
+        </div>
         {/* Row: First Name + Last Name */}
         <div className="flex flex-wrap gap-6">
           <div className="flex-1 min-w-[200px]">
@@ -137,21 +141,12 @@ const AddPatientPage = () => {
             />
           </div>
         </div>
+      <div>
+        <div>
+          <h2 className="text-3xl font-bold text-black mb-2 ">Medical Information</h2>
+        </div>
 
-        {/* Row: Status + ID (read-only) */}
         <div className="flex flex-wrap gap-6">
-          <div className="flex-1 min-w-[200px]">
-            <label htmlFor="status" className="block text-xl font-bold mb-3">Status</label>
-            <input
-              required
-              type="text"
-              id="status"
-              value={status}
-              readOnly
-              className="w-full border-2 border-gray-300 px-3 py-3 rounded-lg cursor-not-allowed"
-            />
-          </div>
-
           <div className="flex-1 min-w-[200px]">
             <label htmlFor="id" className="block text-xl font-bold mb-3">ID Generated</label>
             <input
@@ -163,8 +158,21 @@ const AddPatientPage = () => {
               className="w-full border-2 border-gray-300 px-3 py-3 rounded-lg cursor-not-allowed"
             />
           </div>
+
+          <div className="flex-1 min-w-[200px]">
+            <label htmlFor="procedure" className="block text-xl font-bold mb-3">Procedure</label>
+            <input
+              required
+              type="text"
+              id="procedure"
+              value={procedure}
+              onChange={(e) => setProcedure(e.target.value)}
+              className="w-full border-2 border-gray-300 px-3 py-3 rounded-lg"
+            />
+          </div>
         </div>
-        <button type="submit" className="block mx-auto w-full text-lg bg-blue-500 font-medium text-white py-4 rounded-md hover:bg-blue-600 transition">Add Patient</button>
+      </div>
+      <button type="submit" className="block mx-auto w-full text-lg bg-blue-500 font-medium text-white py-4 rounded-md hover:bg-blue-600 transition">Add Patient</button>
       </form>
     </div>
     </>

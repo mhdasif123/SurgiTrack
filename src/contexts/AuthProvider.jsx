@@ -1,15 +1,19 @@
 import { useState } from "react";
 import users from "../data/user.json"
 import { AuthContext } from "./AuthContext";
+import LocalStorageHook from "../components/Hooks/LocalStorageHook";
 
 
 const AuthProvider = ({children}) => {
-    const [user, setUser] = useState(null);
+    // Using the hook to get the info from storage
+    const [user, setUser] = LocalStorageHook("user", null);;
     const [error, setError] = useState(null);
 
     const login = (identityNumber, password) => {
+
+        setError(null);
         // Check if data from form is in the user database
-        const foundUser = users.find(user => user.identityNumber === identityNumber && user.password === password);
+        const foundUser = users.find(u => u.identityNumber === identityNumber && u.password === password);
 
         // If the user is in the database then we are setting the user information to our user variable, otherwise we are setting the error
         if (foundUser){
@@ -26,6 +30,7 @@ const AuthProvider = ({children}) => {
     const logout = () => {
         setUser(null);
         setError(null);
+        localStorage.removeItem("user");
     }
 
     return (

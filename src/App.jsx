@@ -24,7 +24,7 @@ function App() {
           <Route path="/dashboard" element={<StaffDashboardPage />} />
           <Route path="/search-patient" element={<SearchPatientPage />} />
           <Route path="/admin/add-patient" element={<AddPatientPage />} />
-          <Route path="/admin/edit-patient/" element={<EditPatientPage />} />
+          <Route path="/admin/edit-patient" element={<EditPatientPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>
