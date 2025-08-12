@@ -6,6 +6,7 @@ import PublicDashboardPage from './Pages/PublicDashboardPage';
 import GuestStatusPage from './Pages/GuestStatusPage';
 import StaffDashboardPage from './Pages/StaffDashboardPage';
 import SearchPatientPage from './Pages/SearchPatientPage'; 
+import UpdatePatientStatusPage from './Pages/UpdatePatientStatusPage'; // Update status new page
 import AddPatientPage from './Pages/admin/AddPatientPage';
 import EditPatientPage from './Pages/admin/EditPatientPage';
 import Footer from './components/Layout/Footer'
@@ -25,6 +26,7 @@ function App() {
             <Route path="/waiting-room" element={<PublicDashboardPage />} />
             <Route path="/status/:patientId" element={<GuestStatusPage />} />
             <Route path="/dashboard" element={<StaffDashboardPage />} />
+            <Route path="/update-status" element={<UpdatePatientStatusPage />} /> {/* Route for Update Status*/}
             <Route path="/search-patient" element={<SearchPatientPage />} />
             <Route path="/admin/add-patient" element={<AddPatientPage />} />
             <Route path="/admin/edit-patient/" element={<EditPatientPage />} />
