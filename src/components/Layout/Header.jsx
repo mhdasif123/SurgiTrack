@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import UsersDisplay from '../UsersDisplay'; // Added feature
-
+import React, { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Header = () => {
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const { user, logout } = useContext(AuthContext);
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updateDateTime = () => {
       const now = new Date();
 
-      // Format date: "Jul 31, 2025"
-      const formattedDate = now.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
+      const formattedDate = now.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
       });
 
-      // Format time: "10:45 AM"
-      const formattedTime = now.toLocaleTimeString('en-US', {
-        hour: 'numeric',
-        minute: '2-digit',
+      const formattedTime = now.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
         hour12: true,
       });
 
@@ -31,32 +30,133 @@ const Header = () => {
 
     updateDateTime();
     const interval = setInterval(updateDateTime, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <header className="bg-gradient-to-tr from-blue-600 to-blue-400 w-full relative">
-      <nav className="w-full shadow-md px-4 py-4 flex justify-between items-center relative">
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-primary-blue">
-          <img src="surgiTrack_logo.png" alt="SurgiTrack Logo" className="w-36 md:w-48" />
-        </Link>
+  // =========================
+  // Guest View
+  // =========================
+  if (!user) {
+    return (
+      <header className="bg-gradient-to-tr from-blue-600 to-blue-400 w-full">
+        <nav className="w-full shadow-md px-4 py-4 flex items-center justify-between">
+          {/* Logo on the left */}
+          <Link to="/" className="text-2xl font-bold text-primary-blue">
+            <img
+              src="surgiTrack_logo.png"
+              alt="SurgiTrack Logo"
+              className="w-36 md:w-48"
+            />
+          </Link>
 
-        {/* Centered Date & Time */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex space-x-3">
-          <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold shadow-md">
-            {date}
-          </span>
-          <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold shadow-md">
-            {time}
-          </span>
-        </div>
-
-        {/* Empty div to preserve spacing on the right */}
-        <div > 
-          <UsersDisplay />
+          {/* Date & Time centered */}
+          <div className="flex gap-3 mx-auto">
+            <span
+              className="px-4 py-2 rounded-md text-lg font-semibold text-white"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.17)" }}
+            >
+              {date}
+            </span>
+            <span
+              className="px-4 py-2 rounded-md text-lg font-semibold text-white"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.17)" }}
+            >
+              {time}
+            </span>
           </div>
+
+          {/* Empty placeholder for balance */}
+          <div className="w-36 md:w-48" />
+        </nav>
+      </header>
+    );
+  }
+
+  // =========================
+  // Logged-in View
+  // =========================
+  const isAdmin = user.role?.toLowerCase() === "admin";
+  const isStaff = user.role?.toLowerCase() === "surgical";
+
+  const openPublicDashboard = () => {
+    window.open("/waiting-room", "_blank");
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/", { replace: true });
+  };
+
+  return (
+    <header className="bg-gradient-to-tr from-blue-600 to-blue-400 w-full">
+      <nav className="w-full shadow-md px-4 py-4">
+        <div className="flex justify-between items-center">
+          {/* Left Side - Logo + Role */}
+          <div className="flex items-center space-x-2">
+            <Link to="/" className="text-2xl font-bold text-primary-blue">
+              <img
+                src="surgiTrack_logo.png"
+                alt="SurgiTrack Logo"
+                className="w-36 md:w-48"
+              />
+            </Link>
+            <div className="hidden sm:block">
+              <span className="px-4 py-2 ml-6 bg-white/20 text-white rounded-md text-md font-semibold">
+                {user.role} - {user.name}
+              </span>
+            </div>
+          </div>
+
+          {/* Center - Date & Time */}
+          <div className="flex gap-3">
+            <span
+              className="px-4 py-2 rounded-md text-lg font-semibold text-white"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.17)" }}
+            >
+              {date}
+            </span>
+            <span
+              className="px-4 py-2 rounded-md text-lg font-semibold text-white"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.17)" }}
+            >
+              {time}
+            </span>
+          </div>
+
+          {/* Right Side - Action Buttons */}
+          <div className="flex items-center space-x-3">
+            {isAdmin && (
+              <Link
+                to="/Dashboard"
+                className="px-4 py-2 text-white rounded-md text-xl font-semibold hover:bg-white/17 transition-colors"
+              >
+                🏥 Dashboard
+              </Link>
+            )}
+
+            {!isStaff && (
+              <button
+                onClick={openPublicDashboard}
+                className="px-4 py-2 bg-blue-800 text-white rounded-md text-md font-semibold shadow-md hover:bg-blue-900 transition-colors"
+              >
+                Public Dashboard
+              </button>
+            )}
+
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 bg-red-500 text-white rounded-md text-md font-semibold shadow-md hover:bg-red-600 transition-colors"
+            >
+              Logout
+            </button>
+
+            <div className="sm:hidden">
+              <span className="px-3 py-2 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold shadow-md">
+                {user.role}
+              </span>
+            </div>
+          </div>
+        </div>
       </nav>
     </header>
   );

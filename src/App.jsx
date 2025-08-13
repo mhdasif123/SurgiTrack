@@ -1,19 +1,19 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Header from './components/Layout/Header';
-import LoginPage from './Pages/LoginPage';
-import PublicDashboardPage from './Pages/PublicDashboardPage';
-import GuestStatusPage from './Pages/GuestStatusPage';
-import StaffDashboardPage from './Pages/StaffDashboardPage';
-import SearchPatientPage from './Pages/SearchPatientPage'; 
-import UpdatePatientStatusPage from './Pages/UpdatePatientStatusPage'; // Update status new page
-import AddPatientPage from './Pages/admin/AddPatientPage';
-import EditPatientPage from './Pages/admin/EditPatientPage';
-import Footer from './components/Layout/Footer'
-import ErrorPage from './Pages/ErrorPage'
-import ChatbotIcon from './components/UI/ChatbotIcon';
-import { ChatbotProvider } from './contexts/ChatbotContext';
-
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Layout/Header";
+import LoginPage from "./Pages/LoginPage";
+import PublicDashboardPage from "./Pages/PublicDashboardPage";
+import GuestStatusPage from "./Pages/GuestStatusPage";
+import StaffDashboardPage from "./Pages/StaffDashboardPage";
+import SearchPatientPage from "./Pages/SearchPatientPage";
+import UpdatePatientStatusPage from "./Pages/UpdatePatientStatusPage";
+import AddPatientPage from "./Pages/admin/AddPatientPage";
+import EditPatientPage from "./Pages/admin/EditPatientPage";
+import Footer from "./components/Layout/Footer";
+import ErrorPage from "./Pages/ErrorPage";
+import ChatbotIcon from "./components/UI/ChatbotIcon";
+import { ChatbotProvider } from "./contexts/ChatbotContext";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -22,14 +22,47 @@ function App() {
         <Header />
         <main className="flex-grow">
           <Routes>
+            {/* Public routes */}
             <Route path="/" element={<LoginPage />} />
             <Route path="/waiting-room" element={<PublicDashboardPage />} />
             <Route path="/status/:patientId" element={<GuestStatusPage />} />
-            <Route path="/dashboard" element={<StaffDashboardPage />} />
-            <Route path="/update-status" element={<UpdatePatientStatusPage />} /> {/* Route for Update Status*/}
-            <Route path="/search-patient" element={<SearchPatientPage />} />
-            <Route path="/admin/add-patient" element={<AddPatientPage />} />
-            <Route path="/admin/edit-patient/" element={<EditPatientPage />} />
+            <Route path="/search-patient" element={<SearchPatientPage /> }/>
+
+            {/* Protected routes */}
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute allowedRoles={["staff", "admin"]}>
+                  <StaffDashboardPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/update-status"
+              element={
+                <PrivateRoute allowedRoles={["staff", "admin"]}>
+                  <UpdatePatientStatusPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/add-patient"
+              element={
+                <PrivateRoute allowedRoles={["admin"]}>
+                  <AddPatientPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/edit-patient"
+              element={
+                <PrivateRoute allowedRoles={["admin"]}>
+                  <EditPatientPage />
+                </PrivateRoute>
+              }
+            />
+
+            {/* Catch all */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </main>
