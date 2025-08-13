@@ -10,14 +10,14 @@ const LoginComponent = () => {
     const navigate = useNavigate(); // ⬅️ init
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        login(identityNumber, password);
+      e.preventDefault();
+      login(identityNumber, password);
     };
 
     useEffect(() => {
-        if (user) {
-            navigate('/dashboard'); // ⬅️ redirect after login
-        }
+      if (user) {
+        navigate('/dashboard'); // ⬅️ redirect after login
+      }
     }, [user, navigate]);
 
   return (
@@ -25,7 +25,7 @@ const LoginComponent = () => {
        <div className="flex w-[90%] max-w-6xl rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-200">
 
         {/* Left Side - Login Form */}
-        <div className='w-1/2 bg-white flex flex-col justify-center items-center p-15'>
+        <div className='w-1/2 bg-white flex flex-col justify-center items-center p-16'>
           <div className="w-full max-w-md ">
             <div className='flex flex-col justify-center items-center p-3'>
               <IoShieldCheckmarkSharp className='text-8xl text-blue-600' />
@@ -64,12 +64,12 @@ const LoginComponent = () => {
         </div>
 
         {/* Right Side - Has curved blue shape */}
-        <div className="w-1/2 bg-gradient-to-tr from-blue-600 to-blue-400 text-white flex flex-col justify-center items-center p-15 rounded-l-[150px]">
-          <div className="w-full max-w-md text-center z-10">
-            <h3 className="text-4xl font-semibold mb-4">Family & Friends</h3>
-            <p className="text-lg mb-6 font-bold text-gray-100">Search for a patient?</p>
+        <div className="w-1/2 bg-gradient-to-tr from-blue-600 to-blue-400 text-white flex flex-col justify-center items-center p-16 rounded-l-[150px]">
+          <div className="w-full max-w-md text-center z-10 space-y-16">
+            <h3 className="text-4xl font-semibold ">Family & Friends</h3>
+            <p className="text-lg font-bold text-gray-100">Search for a patient?</p>
             <Link to="/search-patient"> {/* Just added a route to the SearchPatientPage */}
-              <button className="border-2 font-bold text-lg px-10 py-4 border-white rounded-md hover:bg-white hover:text-blue-600 transition">
+              <button className="border-2 font-bold text-lg w-90 py-6 border-white rounded-md hover:bg-white hover:text-blue-600 transition">
                 View Patient
               </button>
             </Link>

@@ -25,7 +25,7 @@ const AddPatientPage = () => {
   const [street, setStreet] = useState(currentPatient.street);
   const [IdGenerator, _] = useState(currentPatient.id);
   const [procedure, setProcedure] = useState(currentPatient.procedure);
-  const [status, setStatus] = useState(currentPatient.status)
+  const [status, setStatus] = useState(currentPatient.currentStatus)
 
 
   console.log(currentPatient);
@@ -51,14 +51,14 @@ const AddPatientPage = () => {
     navigate('/dashboard')
   }
 
-  if (!currentPatient) {
+  if (!currentPatient.id) {
     return <div>Patient not found</div>;
-    }
+  }
 
 
   return (
       <>
-        <h1 className="text-4xl font-bold text-gray-800 mb-2 text-center p-3">Update Patient</h1>
+        <h1 className="text-4xl font-bold text-gray-800 mb-2 text-center p-3">Update Patient Details</h1>
         <div className="max-w-4xl mx-auto p-6 bg-white shadow-2xl rounded-2xl">
         <form className="space-y-6" onSubmit={submitForm}>
           <div>
@@ -187,7 +187,7 @@ const AddPatientPage = () => {
             </div>
           </div>
         </div>
-        <button type="submit" className="block mx-auto w-full text-lg bg-blue-500 font-medium text-white py-4 rounded-md hover:bg-blue-600 transition">Update Patient</button>
+        <button type="submit" className="block mx-auto w-full text-lg bg-blue-500 font-medium text-white py-2 rounded-md hover:bg-blue-600 transition">Update Patient</button>
         </form>
       </div>
       </>

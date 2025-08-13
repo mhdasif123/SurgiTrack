@@ -49,11 +49,11 @@ const SearchPatientComponent = () => {
       <div className="flex w-[90%] max-w-6xl rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-200">
         {/* Left Panel */}
         <div className="w-1/2 bg-gradient-to-tl from-blue-600 to-blue-400 text-white flex flex-col justify-center items-center p-16 rounded-r-[150px]">
-          <div className="w-full max-w-md text-center z-10">
+          <div className="w-full max-w-md text-center z-10 space-y-16">
             <h3 className="text-5xl font-semibold mb-6">Are you hospital staff?</h3>
             <p className="text-xl font-bold mb-10">Welcome back</p>
             <Link to="/" className="inline-block">
-              <button className="border-2 font-bold text-xl px-20 py-6 rounded-md hover:bg-white hover:text-blue-600 transition">
+              <button className="border-2 font-bold text-lg w-90 py-6 border-white rounded-md hover:bg-white hover:text-blue-600 transition">
                 Staff Login
               </button>
             </Link>

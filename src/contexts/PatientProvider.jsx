@@ -6,7 +6,7 @@ import LocalStorageHook from '../components/Hooks/LocalStorageHook.jsx';
 
 export const PatientProvider = ({ children }) => {
   // Using the hook to get the info from storage
-    const [patients, setPatients] = LocalStorageHook("patient", null);
+    const [patients, setPatients] = LocalStorageHook("patients", null);
 
     useEffect(() => {
       if (!patients || patients === 0) {

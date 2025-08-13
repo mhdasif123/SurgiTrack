@@ -172,7 +172,7 @@ const AddPatientPage = () => {
           </div>
         </div>
       </div>
-      <button type="submit" className="block mx-auto w-full text-lg bg-blue-500 font-medium text-white py-4 rounded-md hover:bg-blue-600 transition">Add Patient</button>
+      <button type="submit" className="block mx-auto w-full text-lg bg-blue-500 font-medium text-white py-2 rounded-md hover:bg-blue-600 transition">Add Patient</button>
       </form>
     </div>
     </>
