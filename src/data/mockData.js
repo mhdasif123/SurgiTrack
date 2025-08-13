@@ -1,4 +1,4 @@
-export const STATUSES = ["Checked In", "Pre-Procedure", "In-Progress", "Recovery", "Complete"];
+export const STATUSES = ["Checked In", "Pre-Procedure", "In-Progress", "Closing", "Recovery", "Complete", "Dismissal"];
 
 export const mockPatients = [
   {
