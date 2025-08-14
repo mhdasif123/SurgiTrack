@@ -7,9 +7,10 @@ const UsersDisplay = () => {
   const navigate = useNavigate(); // 👈 Create navigate function
 
   const handleLogout = () => {
-    logout();           // 1. Perform logout
-    navigate("/");      // 2. Redirect to login page
+    logout(); // clears user + storage
+    navigate("/login", { replace: true }); // go to login page
   };
+  
 
   return (
     <div>
