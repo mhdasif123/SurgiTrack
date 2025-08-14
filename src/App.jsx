@@ -13,63 +13,69 @@ import Footer from "./components/Layout/Footer";
 import ErrorPage from "./Pages/ErrorPage";
 import ChatbotIcon from "./components/UI/ChatbotIcon";
 import { ChatbotProvider } from "./contexts/ChatbotContext";
+import AuthProvider from "./contexts/AuthProvider"; // Add this import
+import { PatientProvider } from "./contexts/PatientProvider"; // Add this import
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
-    <ChatbotProvider>
-      <div className="min-h-screen bg-blue-100 flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            {/* Public routes */}
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/waiting-room" element={<PublicDashboardPage />} />
-            <Route path="/status/:patientId" element={<GuestStatusPage />} />
-            <Route path="/search-patient" element={<SearchPatientPage /> }/>
+    <AuthProvider>
+      <PatientProvider>
+        <ChatbotProvider>
+          <div className="min-h-screen bg-blue-100 flex flex-col">
+            <Header />
+            <main className="flex-grow">
+              <Routes>
+                {/* Public routes */}
+                <Route path="/" element={<LoginPage />} />
+                <Route path="/waiting-room" element={<PublicDashboardPage />} />
+                <Route path="/status/:patientId" element={<GuestStatusPage />} />
+                <Route path="/search-patient" element={<SearchPatientPage />} />
 
-            {/* Protected routes */}
-            <Route
-              path="/dashboard"
-              element={
-                <PrivateRoute allowedRoles={["staff", "admin"]}>
-                  <StaffDashboardPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/update-status"
-              element={
-                <PrivateRoute allowedRoles={["staff", "admin"]}>
-                  <UpdatePatientStatusPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/admin/add-patient"
-              element={
-                <PrivateRoute allowedRoles={["admin"]}>
-                  <AddPatientPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/admin/edit-patient"
-              element={
-                <PrivateRoute allowedRoles={["admin"]}>
-                  <EditPatientPage />
-                </PrivateRoute>
-              }
-            />
+                {/* Protected routes - Fixed to include "surgical" role */}
+                <Route
+                  path="/dashboard"
+                  element={
+                    <PrivateRoute allowedRoles={["surgical", "admin"]}>
+                      <StaffDashboardPage />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/update-status"
+                  element={
+                    <PrivateRoute allowedRoles={["surgical", "admin"]}>
+                      <UpdatePatientStatusPage />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/admin/add-patient"
+                  element={
+                    <PrivateRoute allowedRoles={["admin"]}>
+                      <AddPatientPage />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/admin/edit-patient"
+                  element={
+                    <PrivateRoute allowedRoles={["admin"]}>
+                      <EditPatientPage />
+                    </PrivateRoute>
+                  }
+                />
 
-            {/* Catch all */}
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </main>
-        <Footer />
-        <ChatbotIcon />
-      </div>
-    </ChatbotProvider>
+                {/* Catch all */}
+                <Route path="*" element={<ErrorPage />} />
+              </Routes>
+            </main>
+            <Footer />
+            <ChatbotIcon />
+          </div>
+        </ChatbotProvider>
+      </PatientProvider>
+    </AuthProvider>
   );
 }
 

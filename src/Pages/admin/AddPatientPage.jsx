@@ -80,14 +80,19 @@ const AddPatientPage = () => {
         <div className="flex flex-wrap gap-6">
           <div className="flex-1 min-w-[200px]">
             <label htmlFor="phoneNum" className="block text-xl font-bold mb-3">Telephone</label>
-            <input
+            <input  // Entered a fix where you could type letters to the phone number
               required
               type="text"
               id="phoneNum"
               value={phoneNum}
-              onChange={(e) => setphoneNum(e.target.value)}
+              onChange={(e) => {
+                const onlyNums = e.target.value.replace(/\D/g, '');
+                setphoneNum(onlyNums);
+              }}
+              inputMode="numeric"
+              pattern="\d*"
               className="w-full border-2 border-gray-300 px-3 py-3 rounded-lg"
-            />
+                />
           </div>
 
           <div className="flex-1 min-w-[200px]">

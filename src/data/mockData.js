@@ -64,5 +64,32 @@ export const mockPatients = [
     "currentStatus": "Checked In",
     "lastUpdated": "2025-07-21 11:45",
     "history": []
-  }
+  },
+  {
+  "id": "A123X9",
+  "name": "Sophia Martinez",
+  "phoneNum": "+1-555-212-8899",
+  "emailAddress": "sophia.martinez@example.com",
+  "country": "USA",
+  "city": "Denver",
+  "street": "42 Pine Street",
+  "procedure": "Knee Arthroscopy",
+  "currentStatus": "In Surgery",
+  "lastUpdated": "2025-08-13 09:20",
+  "history": []
+},
+{
+  "id": "L456Q7",
+  "name": "Michael Thompson",
+  "phoneNum": "+1-555-678-3344",
+  "emailAddress": "michael.thompson@example.com",
+  "country": "USA",
+  "city": "Boston",
+  "street": "87 Maple Ave",
+  "procedure": "Cataract Surgery",
+  "currentStatus": "Recovery",
+  "lastUpdated": "2025-08-14 14:55",
+  "history": []
+}
+
 ];
