@@ -46,7 +46,7 @@ const SurgicalUpdatePage = () => {
       currentStatus: newStatus,
       lastUpdated: new Date().toISOString(),
     });
-    navigate("/surgicalDashboard");
+    navigate("/Dashboard");
   };
 
   const statusColors = {
