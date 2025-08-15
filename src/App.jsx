@@ -16,6 +16,7 @@ import { ChatbotProvider } from "./contexts/ChatbotContext";
 import AuthProvider from "./contexts/AuthProvider"; // Add this import
 import { PatientProvider } from "./contexts/PatientProvider"; // Add this import
 import PrivateRoute from "./components/PrivateRoute";
+import SurgicalUpdatePage from "./Pages/surgicalUpdatePage";
 
 function App() {
   return (
@@ -44,8 +45,16 @@ function App() {
                 <Route
                   path="/update-status"
                   element={
-                    <PrivateRoute allowedRoles={["surgical", "admin"]}>
+                    <PrivateRoute allowedRoles={["admin"]}>
                       <UpdatePatientStatusPage />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/surgical-update"
+                  element={
+                    <PrivateRoute allowedRoles={["surgical"]}>
+                      <SurgicalUpdatePage />
                     </PrivateRoute>
                   }
                 />

@@ -109,7 +109,7 @@ const StaffDashboardComponent = () => {
                       </Link>
                     )}
                     <Link
-                      to={`/update-status?id=${patient.id}`}
+                      to={isSurgical ? `/surgical-update?id=${patient.id}` : `/update-status?id=${patient.id}`}
                       className="block text-center bg-green-500 text-white px-3 py-2 rounded text-sm hover:bg-green-600 transition"
                     >
                       Update Status
@@ -164,7 +164,7 @@ const StaffDashboardComponent = () => {
                         </Link>
                       )}
                       <Link
-                        to={`/update-status?id=${patient.id}`}
+                        to={isSurgical ? `/surgical-update?id=${patient.id}` : `/update-status?id=${patient.id}`}
                         className="text-green-600 hover:underline font-medium"
                       >
                         Update Status
