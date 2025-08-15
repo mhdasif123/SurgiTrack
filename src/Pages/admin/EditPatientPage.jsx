@@ -14,10 +14,10 @@ const AddPatientPage = () => {
 
   const currentPatient = patients?.find(p => p.id === id);
 
-  const [wordOneName, worldTwoName] = currentPatient.name.split(" ");
+  const [wordOneName, wordTwoName] = currentPatient.name.split(" ");
 
   const [firstName, setFirstName] = useState(wordOneName);
-  const [lastName, setLastName] = useState(worldTwoName);
+  const [lastName, setLastName] = useState(wordTwoName);
   const [phoneNum, setphoneNum] = useState(currentPatient.phoneNum);
   const [emailAddress, setemailAddress] = useState(currentPatient.emailAddress);
   const [country, setCountry] = useState(currentPatient.country);
