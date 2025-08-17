@@ -16,6 +16,7 @@ import { ChatbotProvider } from "./contexts/ChatbotContext";
 import AuthProvider from "./contexts/AuthProvider"; // Add this import
 import { PatientProvider } from "./contexts/PatientProvider"; // Add this import
 import PrivateRoute from "./components/PrivateRoute";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -72,6 +73,7 @@ function App() {
             </main>
             <Footer />
             <ChatbotIcon />
+            <Toaster position="top-right" reverseOrder={false} />
           </div>
         </ChatbotProvider>
       </PatientProvider>

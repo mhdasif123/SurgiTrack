@@ -3,7 +3,7 @@ import StaffDashboardComponent from '../components/StaffDashboardComponent'
 
 const StaffDashboardPage = () => {
   return (
-    <div>
+    <div className='flex justify-center items-center'>
       <StaffDashboardComponent />
     </div>
   );

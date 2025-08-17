@@ -65,7 +65,7 @@ const StaffDashboardComponent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 px-4 py-10 relative">
+    <div className=" w-[90%] 0 px-4 py-10 relative">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">
           Staff Dashboard
