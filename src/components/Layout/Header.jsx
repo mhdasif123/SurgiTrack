@@ -42,11 +42,13 @@ const Header = () => {
         <nav className="w-full shadow-md px-4 py-4">
           {/* Mobile Layout: Just Logo Centered */}
           <div className="flex items-center justify-center md:hidden">
-            <Link to="/" className="text-2xl font-bold text-primary-blue">
+            <Link to={user ? "/dashboard" : "/"} className="text-2xl font-bold text-primary-blue">
               <img
                 src="surgiTrack_logo.png"
                 alt="SurgiTrack Logo"
                 className="w-32"
+                loading="eager"
+                decoding="async"
               />
             </Link>
           </div>
@@ -54,11 +56,13 @@ const Header = () => {
           {/* Desktop Layout: Logo + Date/Time + Empty Space */}
           <div className="hidden md:flex items-center justify-between">
             {/* Logo on the left */}
-            <Link to="/" className="text-2xl font-bold text-primary-blue">
+            <Link to={user ? "/dashboard" : "/"} className="text-2xl font-bold text-primary-blue">
               <img
                 src="surgiTrack_logo.png"
                 alt="SurgiTrack Logo"
                 className="w-36 lg:w-48"
+                loading="eager"
+                decoding="async"
               />
             </Link>
 
@@ -108,11 +112,13 @@ const Header = () => {
         <div className="md:hidden">
           {/* Logo */}
           <div className="flex justify-center mb-3">
-            <Link to="/" className="text-2xl font-bold text-primary-blue">
+            <Link to={user ? "/dashboard" : "/"} className="text-2xl font-bold text-primary-blue">
               <img
                 src="surgiTrack_logo.png"
                 alt="SurgiTrack Logo"
                 className="w-32"
+                loading="eager"
+                decoding="async"
               />
             </Link>
           </div>
@@ -157,11 +163,13 @@ const Header = () => {
         <div className="hidden md:flex justify-between items-center">
           {/* Left Side - Logo + Role */}
           <div className="flex items-center space-x-2">
-            <Link to="/" className="text-2xl font-bold text-primary-blue">
+            <Link to={user ? "/dashboard" : "/"} className="text-2xl font-bold text-primary-blue">
               <img
                 src="surgiTrack_logo.png"
                 alt="SurgiTrack Logo"
                 className="w-36 lg:w-48"
+                loading="eager"
+                decoding="async"
               />
             </Link>
             <div>
