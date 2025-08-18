@@ -19,9 +19,10 @@ const SearchPatientComponent = () => {
       const foundPatient = await patients.find(
       (patient) => patient.id.toLowerCase() === patientId.toLowerCase()
     );
+
      if (foundPatient) {
       toast.success("Patient Found")
-      navigate('/status/:patientId', { state: { patient: foundPatient } });
+      navigate(`/status/${foundPatient.id}`, { state: { patient: foundPatient } });
     } else {
       toast.error('Patient not found. Please check your ID and try again.');
     }
