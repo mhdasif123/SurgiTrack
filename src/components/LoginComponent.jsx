@@ -2,23 +2,43 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom"; // ⬅️ added useNavigate
+import toast from 'react-hot-toast';
+import SearchDialogComponent from './SearchDialogComponent';
 
 const LoginComponent = () => {
-    const { login, error, user } = useContext(AuthContext);
+    const { login} = useContext(AuthContext);
     const [identityNumber, setidentityNumber] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate(); // ⬅️ init
+    const [dialogContent, setDialogContent] = useState(null);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
       e.preventDefault();
-      login(identityNumber, password);
-    };
+      try {
+        const results = await login(identityNumber, password)
+        if (results){
+          toast.success("Login Successfully", { position: "top-right" })
+          navigate('/dashboard');
+        } else {
+          toast.error("Invalid Credentials", { position: "top-right" });
+        }
+      } catch (error) {
+        toast.error("Something went wrong", { position: "top-center" });
+        console.log(error);
+      };
+  }
 
-    useEffect(() => {
-      if (user) {
-        navigate('/dashboard'); // ⬅️ redirect after login
-      }
-    }, [user, navigate]);
+  const openDialog = (type) => {
+    if (type === 'password') {
+      setDialogContent({
+        title: 'Need Help?',
+        message: 'Please contact the Hospital admin for assistance with creating a new password'
+      });
+    }
+  }
+    
+
+  const closeDialog = () => setDialogContent(null);
 
   return (
      <div className="flex justify-center items-center">
@@ -48,7 +68,7 @@ const LoginComponent = () => {
                 type='password'
                 placeholder='Enter your password'
               />
-              <div className="text-xl font-semibold text-center text-gray-500 hover:underline cursor-pointer">
+              <div className="text-xl font-semibold text-center text-gray-500 hover:underline cursor-pointer"  onClick={() => openDialog('password')}>
                 Forgot your password?
               </div>
               <button
@@ -57,10 +77,10 @@ const LoginComponent = () => {
               >
                 Login
               </button>
-              {error && <p className='text-red-500 mt-4'>{error}</p>}
             </form>
             </div>
           </div>
+          <SearchDialogComponent isOpen={dialogContent !== null} onClose={closeDialog} title={dialogContent?.title} message={dialogContent?.message} />
         </div>
 
         {/* Right Side - Has curved blue shape */}
@@ -75,11 +95,10 @@ const LoginComponent = () => {
             </Link>
           </div>
         </div>
-
       </div>
     </div>
 
   )
 }
 
-export default LoginComponent
+export default LoginComponent;

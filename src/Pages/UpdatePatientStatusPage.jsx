@@ -70,7 +70,7 @@ const UpdatePatientStatusPage = () => {
       <h1 className="text-4xl font-bold text-gray-800 mb-2 text-center p-6">
         Update Patient Status
       </h1>
-      <div className="max-w-4xl mx-auto p-6 bg-white shadow-2xl rounded-2xl mb-20">
+      <div className="max-w-4xl mx-auto p-6 bg-white shadow-2xl rounded-2xl">
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Row: First Name + Last Name + Current Status */}

@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaUsers } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
-import { mockPatients } from '../data/mockData';
 import  SearchDialogComponent  from './SearchDialogComponent';
+import { PatientContext} from '../contexts/PatientContext'
+import toast from 'react-hot-toast';
 
 
 const SearchPatientComponent = () => {
@@ -10,22 +11,25 @@ const SearchPatientComponent = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const [dialogContent, setDialogContent] = useState(null);
+  const {patients} = useContext(PatientContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-
-    const foundPatient = mockPatients.find(
+    try {
+      const foundPatient = await patients.find(
       (patient) => patient.id.toLowerCase() === patientId.toLowerCase()
     );
 
-    if (foundPatient) {
-      setError(null);
+     if (foundPatient) {
+      toast.success("Patient Found")
       navigate(`/status/${foundPatient.id}`, { state: { patient: foundPatient } });
     } else {
-      setError('Patient not found. Please check your ID and try again.');
+      toast.error('Patient not found. Please check your ID and try again.');
     }
-  };
-  
+    } catch (error) {
+      toast.error("Something went wrong", { position: "top-center" });
+      console.log(error);
+    }}
     /*Dialog messages logic */
 
   const openDialog = (type) => {
@@ -94,18 +98,18 @@ const SearchPatientComponent = () => {
               <div className="text-base font-black text-center pb-10 text-gray-500 hover:underline cursor-pointer" onClick={() => openDialog('patientId')}>
                 Learn how to get access to your Patient ID
               </div>
-               <SearchDialogComponent
-        isOpen={dialogContent !== null}
-        onClose={closeDialog}
-        title={dialogContent?.title}
-        message={dialogContent?.message}
-      />
 
               {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
             </form>
           </div>
         </div>
       </div>
+      <SearchDialogComponent
+        isOpen={dialogContent !== null}
+        onClose={closeDialog}
+        title={dialogContent?.title}
+        message={dialogContent?.message}
+        />
     </div>
   );
 };

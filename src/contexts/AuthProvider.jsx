@@ -22,10 +22,10 @@ const AuthProvider = ({ children }) => {
         role: foundUser.role,
       });
       setError(null);
-      console.log("Login successful");
+      return true
     } else {
       setUser(null);
-      setError("Invalid Credentials");
+      return false
     }
   };
 
@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, logout, login, error }}>
+    <AuthContext.Provider value={{ user, logout, login, error, setError }}>
       {children}
     </AuthContext.Provider>
   );
