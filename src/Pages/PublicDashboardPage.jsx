@@ -13,7 +13,26 @@ const statusStyles = {
 const PublicDashboardPage = () => {
   const { patients } = useContext(PatientContext);
   const [currentPage, setCurrentPage] = useState(0);
+  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
   const pageSize = 12;
+
+  // Handle screen resize for responsive grid
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Get responsive grid columns based on screen width
+  const getGridColumns = () => {
+    if (screenWidth >= 2000) return 'repeat(6, minmax(0, 1fr))';
+    if (screenWidth >= 1024) return 'repeat(4, minmax(0, 1fr))';
+    if (screenWidth >= 768) return 'repeat(2, minmax(0, 1fr))';
+    return '1fr';
+  };
 
   if (!patients) {
     return (
@@ -38,9 +57,11 @@ const PublicDashboardPage = () => {
 
   useEffect(() => {
     if (totalPages <= 1) return;
+    
     const interval = setInterval(() => {
       setCurrentPage(prev => (prev + 1) % totalPages);
-    }, 20000);
+    }, 20000); // Always 20 seconds regardless of patient count
+    
     return () => clearInterval(interval);
   }, [totalPages]);
 
@@ -61,10 +82,10 @@ const PublicDashboardPage = () => {
 
         {/* White container for grid */}
         <div className="bg-white rounded-lg shadow-lg p-8">
-          {/* Patient Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {visiblePatients.map((patient, index) => {
-              const patientNumber = (currentPage * pageSize) + index + 1;
+          {/* Patient Cards Grid - Responsive for different screen sizes */}
+          <div className="gap-6" 
+               style={{display: 'grid', gridTemplateColumns: getGridColumns(), gap: '1.5rem'}}>
+            {visiblePatients.map((patient) => {
               return (
                 <div
                   key={patient.id}
@@ -72,7 +93,7 @@ const PublicDashboardPage = () => {
                 >
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-lg font-semibold text-gray-800">
-                      Patient #{patientNumber}
+                      ID: {patient.id}
                     </h3>
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-semibold ${
