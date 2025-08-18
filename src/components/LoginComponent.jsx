@@ -142,7 +142,7 @@ const LoginComponent = () => {
                                     <input
                                         className="w-full font-bold px-4 py-3 bg-gray-100 rounded-xl focus:outline-none"
                                         value={identityNumber}
-                                        onChange={(e) => setidentityNumber(e.target.value)}
+                                        onChange={(e) => setIdentityNumber(e.target.value)}
                                         type='text'
                                         placeholder='Enter your staff ID'
                                     />
