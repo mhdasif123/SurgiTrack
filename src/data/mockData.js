@@ -11,8 +11,7 @@ export const mockPatients = [
     "street": "456 Elm St",
     "procedure": "Knee Arthroscopy",
     "currentStatus": "In-Progress",
-    "lastUpdated": "2025-07-21 14:30",
-    "history": []
+    "lastUpdated": "2025-07-21 14:30"
   },
   {
     "id": "B789G1",
@@ -24,8 +23,7 @@ export const mockPatients = [
     "street": "789 Oak Ave",
     "procedure": "Gallbladder Removal",
     "currentStatus": "Pre-Procedure",
-    "lastUpdated": "2025-07-21 15:00",
-    "history": []
+    "lastUpdated": "2025-07-21 15:00"
   },
   {
     "id": "C456H3",
@@ -37,8 +35,7 @@ export const mockPatients = [
     "street": "123 Main St",
     "procedure": "Appendectomy",
     "currentStatus": "Recovery",
-    "lastUpdated": "2025-07-21 13:15",
-    "history": []
+    "lastUpdated": "2025-07-21 13:15"
   },
   {
     "id": "D123J4",
@@ -62,8 +59,7 @@ export const mockPatients = [
     "street": "654 Cedar Ln",
     "procedure": "Hip Replacement",
     "currentStatus": "Checked In",
-    "lastUpdated": "2025-07-21 11:45",
-    "history": []
+    "lastUpdated": "2025-07-21 11:45"
   },
   {
   "id": "A123X9",
@@ -75,8 +71,7 @@ export const mockPatients = [
   "street": "42 Pine Street",
   "procedure": "Knee Arthroscopy",
   "currentStatus": "In Surgery",
-  "lastUpdated": "2025-08-13 09:20",
-  "history": []
+  "lastUpdated": "2025-08-13 09:20"
 },
 {
   "id": "L456Q7",
@@ -88,8 +83,7 @@ export const mockPatients = [
   "street": "87 Maple Ave",
   "procedure": "Cataract Surgery",
   "currentStatus": "Recovery",
-  "lastUpdated": "2025-08-14 14:55",
-  "history": []
+  "lastUpdated": "2025-08-14 14:55"
 },
     {
     "id": "F987M6",
@@ -101,8 +95,7 @@ export const mockPatients = [
     "street": "222 Birch Blvd",
     "procedure": "Tonsillectomy",
     "currentStatus": "Checked In",
-    "lastUpdated": "2025-08-14 08:15",
-    "history": []
+    "lastUpdated": "2025-08-14 08:15"
   },
   {
     "id": "G654N7",
@@ -114,8 +107,7 @@ export const mockPatients = [
     "street": "98 Ocean Dr",
     "procedure": "Colonoscopy",
     "currentStatus": "Pre-Procedure",
-    "lastUpdated": "2025-08-14 10:45",
-    "history": []
+    "lastUpdated": "2025-08-14 10:45"
   },
   {
     "id": "H321P8",
@@ -127,8 +119,7 @@ export const mockPatients = [
     "street": "156 Palm St",
     "procedure": "Cesarean Section",
     "currentStatus": "In-Progress",
-    "lastUpdated": "2025-08-14 11:30",
-    "history": []
+    "lastUpdated": "2025-08-14 11:30"
   },
   {
     "id": "I876R9",
@@ -140,8 +131,7 @@ export const mockPatients = [
     "street": "73 Walnut Ave",
     "procedure": "Pacemaker Implant",
     "currentStatus": "Closing",
-    "lastUpdated": "2025-08-14 12:05",
-    "history": []
+    "lastUpdated": "2025-08-14 12:05"
   },
   {
     "id": "J543S0",
@@ -153,8 +143,7 @@ export const mockPatients = [
     "street": "4 Magnolia Blvd",
     "procedure": "Gallbladder Removal",
     "currentStatus": "Recovery",
-    "lastUpdated": "2025-08-14 12:50",
-    "history": []
+    "lastUpdated": "2025-08-14 12:50"
   },
   {
     "id": "K210T1",
@@ -166,8 +155,7 @@ export const mockPatients = [
     "street": "81 Rose St",
     "procedure": "Appendectomy",
     "currentStatus": "Complete",
-    "lastUpdated": "2025-08-14 13:40",
-    "history": []
+    "lastUpdated": "2025-08-14 13:40"
   },
   {
     "id": "M432U2",
@@ -179,8 +167,7 @@ export const mockPatients = [
     "street": "59 Chestnut St",
     "procedure": "Hip Replacement",
     "currentStatus": "Dismissal",
-    "lastUpdated": "2025-08-14 14:10",
-    "history": []
+    "lastUpdated": "2025-08-14 14:10"
   },
   {
     "id": "N876V3",
@@ -192,7 +179,6 @@ export const mockPatients = [
     "street": "900 Desert View Rd",
     "procedure": "Knee Replacement",
     "currentStatus": "Checked In",
-    "lastUpdated": "2025-08-14 14:35",
-    "history": []
+    "lastUpdated": "2025-08-14 14:35"
   }
 ];

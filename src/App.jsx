@@ -13,16 +13,12 @@ import Footer from "./components/Layout/Footer";
 import ErrorPage from "./Pages/ErrorPage";
 import ChatbotIcon from "./components/UI/ChatbotIcon";
 import { ChatbotProvider } from "./contexts/ChatbotContext";
-import AuthProvider from "./contexts/AuthProvider"; // Add this import
-import { PatientProvider } from "./contexts/PatientProvider"; // Add this import
 import PrivateRoute from "./components/PrivateRoute";
 import SurgicalUpdatePage from "./Pages/surgicalUpdatePage";
 import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <AuthProvider>
-      <PatientProvider>
         <ChatbotProvider>
           <div className="min-h-screen bg-blue-100 flex flex-col">
             <Header />
@@ -85,8 +81,7 @@ function App() {
             <Toaster position="top-right" reverseOrder={false} />
           </div>
         </ChatbotProvider>
-      </PatientProvider>
-    </AuthProvider>
+ 
   );
 }
 
