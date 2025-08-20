@@ -16,7 +16,8 @@ SurgiTrack is a comprehensive patient status tracking system designed to reduce 
 
 | Staff Dashboard | Staff Login | Patient Status |
 | :---: | :---: | :---: |
-| ./public/staff Dashboard.png | ./public/Login.png | ./public/PatientStatus.png |
+| ![StaffDashboard](./public/StaffDashboard.png) | ![Staff Login](./public/Login.png) | ![Patient Status](./public/PatientStatus.png) |
+
 
 ## ✨ Features
 
