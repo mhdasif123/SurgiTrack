@@ -30,6 +30,7 @@ export const PatientForm = ({
 <MedicalInfoSection
   formData={formData}
   setField={setField}
+  generatedId={generatedId}
   errors={errors}
 />
 
