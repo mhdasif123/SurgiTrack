@@ -47,7 +47,6 @@ SurgiTrack is a comprehensive patient status tracking system designed to reduce 
 | **Gemini AI** | Chatbot integration            |
 | **Vite** | Build tool & dev server        |
 
----
 ## 🎨 UI/UX & Responsive Design  
 
 - **Clean & Professional Interface**  
