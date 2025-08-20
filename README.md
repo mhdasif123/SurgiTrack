@@ -162,6 +162,11 @@ src/
 
 This project was brought to life by **JAMBA Team** as part of Chingu Voyage 56.
 
+- **Lymperis Dimitris**: [GitHub](https://github.com/JimLimpe) / [LinkedIn](https://www.linkedin.com/in/dimitris-lymperis-web-developer/)
+- **Aibar Kamashev**: [GitHub](https://github.com/Aibar-S/)
+- **Mostafa Elmoalem**: [GitHub](https://github.com/Mostafa-Elmoalem) / [LinkedIn](https://www.linkedin.com/in/mostafa-elmoalem-782a821ba/)
+- **Brittany Haupt**: [GitHub](https://github.com/Haupt04) / [LinkedIn](https://www.linkedin.com/in/brittany-haupt-4a38621b2/)
+- **Mohammed Asif**: [GitHub](https://github.com/mhdasif123) / [LinkedIn](https://www.linkedin.com/in/mhdasif123/)
 
 ## 🔮 Future Enhancements  
 
