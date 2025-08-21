@@ -1,4 +1,4 @@
-import { FormField } from "./Formfield";
+import { FormField } from "./FormField";
 
 
 export const PatientInfoDisplay = ({ patient, patientName }) => (
